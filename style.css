@@ -83,6 +83,7 @@ main > section.hero {
   /* make this banner stick to the top! */
   position: sticky;
   top: 0;
+  z-index: 2;
 }
 
 section.hero > .call-to-action {
@@ -120,8 +121,11 @@ main > article img {
 
 main > article p:first-of-type::first-letter {
   font-size: 64px;
-  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   float: left;
+  font-size: 5em;
+  margin: 0 .1em 0 0;
+  line-height: 0.85;
 }
 
 footer {
@@ -137,19 +141,33 @@ footer {
 
 span.tooltip {
   color: var(--danger-color);
-  position: relative;
   cursor: pointer;
+  font-size: 1.2rem;
+  position: relative;
 }
 
 /* underline span on hover/focus */
 span.tooltip:hover,
 span.tooltip:focus {
   text-decoration: underline;
+  visibility: visible;
 }
 /* show tooltip on hover/focus */
 span.tooltip:hover > span,
 span.tooltip:focus > span {
-  display: inline;
+  background-color: black;
+  border-radius: 6px;
+  bottom: 100%;
+  color: #fff;
+  display: inline;  
+  left: 50%;
+  margin-left: -100px;
+  padding: 10px 10px;
+  position: absolute;
+  text-align: center;
+  visibility: visible;
+  width: 200px;
+  z-index: 1;
 }
 
 /* styling for tooltip bubble */
@@ -159,5 +177,12 @@ span.tooltip span {
 
 /* styling for tooltip bubble arrow */
 span.tooltip span::after {
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
   content: "";
+  left: calc(50% - 10px);
+  margin-left: -5px;
+  position: absolute;
+  top: 100%; 
 }
